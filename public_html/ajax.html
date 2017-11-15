@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>AJAX Example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+            
+            <script type="text/javascript">
+                $(document).ready(function(){
+    $('#submit').click(function(){
+    var color = $('#color').val();
+    $("#result").load('ajax.php', {"color": color});
+    });
+});
+            </script>
+    </head>
+    <body>
+        
+        
+        <h1>Example of AJAX Request</h1>
+        <br>
+        <br>
+        <h3>What Is Your Favorite Color?</h3>
+        <input type="text" id="color" size="20"/>
+       
+        <div id="result"></div>
+        
+        <input type="button" id="submit" value ="Submit" />
+        
+        
+    </body>
+</html>

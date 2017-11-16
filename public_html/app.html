@@ -22,10 +22,25 @@
     <body ng-controller="viewRatings">
         
         <h1>Angular Example</h1>
+          <div class="container-fluid">
+        <form class="form-inline">
+            <input type="text" class="form-control" placeholder="Filter Reviews" ng-model="filterText">
+            <button class="btn btn-default" ng-click="resetFilter()">Clear</button>
+        </form>
+              
+              <ul class="list-group" ng-repeat="historyItem in filterHistory">
+                  <li class="list-group-item">{{historyItem}}</li>
+              </ul>
+            <div class="panel panel-default" ng-repeat="rating in ratings | filter:filterText" >
+                <div class="panel-heading">
         
         <p> {{rating.userName}}</p>
-        {{rating.rating}}  out of 5 <br>
+        {{rating.rating}}  out of 5
+                </div>
+                <div class="panel-body">
         Comments: {{rating.comments}}
-        
+        </div>
+            </div>
+        </div>
     </body>
 </html>

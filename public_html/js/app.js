@@ -1,7 +1,7 @@
 
 //Module
 var ratingApp = angular.module('ratingApp', ['ngRoute']);
-
+var cameraApp = angular.module('cameraApp', ['ngRoute']);
 //controller 
 
 ratingApp.controller('viewRatings', ['$scope', function($scope){
@@ -57,3 +57,19 @@ ratingApp.config(['$routeProvider',
                     redirectTo:'/reviews'
         });
     }]);
+
+//Week 5 Controller
+
+cameraApp.controller('cameraList',
+['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams){
+        
+        var cameraID = $routeParams.cameraID;
+        
+        $http.get("/services/cameras.php", {params: {'id': cameraID}})
+                .then(function (response) {
+                    $scope.camera = response.data;
+        },
+        function errorCallback(response) {
+            $scope.error = response.data;
+        });
+}]);

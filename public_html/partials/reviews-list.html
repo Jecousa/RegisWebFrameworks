@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Ratings list</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -36,7 +36,17 @@ and open the template in the editor.
         <p> {{rating.userName}}</p>
         {{rating.rating}}  out of 5
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" ng-show="error != null">
+        {{error.errorMessage}}
+        </div>
+                <div class="panel-body" ng-show="error == null">
+        Model: {{camera.model}}
+        </div>
+                <div class="panel-body" ng-show="error == null">
+        Model: {{camera.model}}
+        </div>
+                
+                <div class="panel-body" ng-show="error == null">
         Comments: {{rating.comments}}
         </div>
             </div>

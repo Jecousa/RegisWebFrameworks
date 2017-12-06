@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Custom CSS & JS -->
+        <link rel ="stylesheet" href="./styles/app.css"/>
+        <script src ="./js/app.js"></script>
+        <!--Flexslider-->
+        <link rel ="stylesheet" href="./styles/flexslider.css"/>
+        <script src ="./js/jquery.flexslider.js"></script>
+
+    </head>
+    <body>
+        <div class="flexslider" >
+            <ul class="slides" >
+                <li ng-repeat="camera in cameras">
+                    <div class="flex" >
+                        <img class ="camera" src="{{camera.make}}"/>
+                        <h2>{{camera.model}}</h2>
+                    </div>
+                </li>
+
+            </ul>       
+            <a href="#/gallery/">Go Back to Gallery</a>
+        </div>        
+    </body>
+</html>

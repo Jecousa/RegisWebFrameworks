@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>       
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+
+    </head>
+
+    <body>       
+        <div class="container-fluid" >
+
+            <form class="form-inline">
+                <input type="text" class="form-control" placeholder="Filter Photos" 
+                       ng-focus="changeLabel('Filter:ng - focus')"
+                       ng-blur="changeLabel('Filter:ng - blur')"
+                       ng-model="filterText">
+                <button class="btn btn-default" ng-click="resetFilter()">Clear</button>
+            </form>
+            
+            <br>
+            
+            <!--Mouse Over Text-->
+            <label>{{displayLabelText}}</label>
+            <div class="row">
+                <!--History Text-->
+                <ul class="list-group" ng-repeat="historyItem in filterHistory">
+                    <li class="list-group-item">{{historyItem}}</li>
+                </ul>
+            </div>
+            <!--Images-->
+            <div class="row">
+                <div class="alert" ng-show="error != null">
+                    <h1>{{error.errorMessage}}</h1>
+                </div>
+                <div class="col-md-4 gallery" style="background: lightblue">
+                    <div class="thumbnail"
+                         ng-mouseover="changeLabel('Mouseover:review')"
+                         ng-repeat="gallery in galleries">
+                        <a href="#/gallery/{{gallery.id}}">
+                            <img src="{{gallery.photo}}" >
+                            <div class="caption">
+                                <p>{{gallery.caption}}</p>
+                            </div>    
+                        </a>
+               
+                    </div>
+                </div>
+                <a href="#/camera/">Check out a Flexslide of Cool Cameras to Take these Pictures!</a>
+            </div>
+            
+        </div>
+   </body>
+
+</html>
